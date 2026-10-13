@@ -1,0 +1,18 @@
+export const queryKeys = {
+  requests: ["requests"] as const,
+  queueSummary: ["requests", "summary"] as const,
+  topRequestId: ["requests", "top"] as const,
+  request: (id: string) => ["requests", id] as const,
+  brief: (id: string) => ["briefs", id] as const,
+  tiers: ["tiers"] as const,
+  authorityKpis: ["tiers", "kpis"] as const,
+  policies: ["policies"] as const,
+  policy: (id: string) => ["policies", id] as const,
+  contracts: ["contracts"] as const,
+  contract: (id: string) => ["contracts", id] as const,
+  riskKpis: ["contracts", "kpis"] as const,
+  bottlenecks: ["bottlenecks"] as const,
+  patterns: ["patterns"] as const,
+  connectors: ["connectors"] as const,
+  pipeline: ["connectors", "pipeline"] as const,
+};

@@ -1,0 +1,111 @@
+/**
+ * DEMO: sample data. Policy names, versions and clause text are fictional.
+ * Remove /lib/mock when connecting a real backend.
+ */
+import type { PolicyDocument } from "@/lib/schemas";
+import { daysAgo } from "./time";
+
+export const mockPolicies: PolicyDocument[] = [
+  {
+    id: "pol-doa",
+    name: "Delegation of Authority Policy",
+    type: "authority_limits",
+    version: "4.8",
+    uploadedAt: daysAgo(21),
+    status: "active",
+    syncStatus: "synced",
+    sizeKb: 842,
+    fileName: "delegation-of-authority-v4.8.pdf",
+    owner: "Office of the Chief Executive",
+    summary: "Sets the financial limits each authority tier may approve without escalation, and the categories each tier may approve.",
+    clauses: [
+      { ref: "§3.1", title: "Tier 1 · Executive Committee", text: "The Executive Committee may approve commitments above the Tier 2 limit. Commitments above 10,000,000 additionally require Board ratification (§3.1(b))." },
+      { ref: "§3.2", title: "Tier 2 · Director", text: "Directors may approve commitments up to 1,500,000 within the categories listed in Schedule B." },
+      { ref: "§3.3", title: "Tier 3 · Head of Department", text: "Heads of Department may approve commitments up to 250,000 within the categories listed in Schedule C." },
+      { ref: "§3.4", title: "Category exceptions", text: "Where a category is not delegated to a tier, the request is routed to the next tier that holds that category, regardless of value." },
+    ],
+  },
+  {
+    id: "pol-proc",
+    name: "Procurement and Contracting Procedure",
+    type: "procedure",
+    version: "3.2",
+    uploadedAt: daysAgo(64),
+    status: "active",
+    syncStatus: "synced",
+    sizeKb: 1_210,
+    fileName: "procurement-procedure-v3.2.docx",
+    owner: "Procurement",
+    summary: "Describes how goods and services are sourced, evaluated and contracted, including extension rules.",
+    clauses: [
+      { ref: "§6.1", title: "Contract extensions", text: "Extensions above 20% of original contract value require a refreshed business case." },
+      { ref: "§6.3", title: "Vendor performance", text: "Vendor delivery records for the previous two phases must be attached to any extension request." },
+    ],
+  },
+  {
+    id: "pol-esc",
+    name: "Escalation and Exception Rules",
+    type: "escalation_rules",
+    version: "2.1",
+    uploadedAt: daysAgo(12),
+    status: "active",
+    syncStatus: "synced",
+    sizeKb: 318,
+    fileName: "escalation-rules-v2.1.pdf",
+    owner: "Governance Office",
+    summary: "Defines when a request must be escalated and when it may be resolved at the current tier.",
+    clauses: [
+      { ref: "§2.2", title: "Deadline escalation", text: "A request may be escalated one tier when it exceeds 150% of its service-level target." },
+      { ref: "§2.5", title: "Inter-agency review", text: "Inter-agency review is required only where funding or data is shared with another agency." },
+    ],
+  },
+  {
+    id: "pol-contract",
+    name: "Contract Requirements Standard",
+    type: "contract_requirements",
+    version: "1.6",
+    uploadedAt: daysAgo(35),
+    status: "active",
+    syncStatus: "synced",
+    sizeKb: 506,
+    fileName: "contract-requirements-v1.6.pdf",
+    owner: "Legal and Compliance",
+    summary: "Minimum clauses required in contracts and contract variations.",
+    clauses: [
+      { ref: "§5.4", title: "Audit clause", text: "Extensions with a value above 1,000,000 must include a mandatory third-party audit of costs at completion of the extended scope." },
+      { ref: "§5.7", title: "Termination", text: "All contracts must state termination penalties and service continuity obligations." },
+    ],
+  },
+  {
+    id: "pol-approval",
+    name: "Approval Workflow Rules",
+    type: "approval_rules",
+    version: "5.0",
+    uploadedAt: daysAgo(8),
+    status: "needs_review",
+    syncStatus: "syncing",
+    sizeKb: 274,
+    fileName: "approval-workflow-rules-v5.0.docx",
+    owner: "Governance Office",
+    summary: "Sequence of approval stages for each request category. Version 5.0 is awaiting review after the stage D change proposal.",
+    clauses: [
+      { ref: "§1.3", title: "Stage order", text: "Requests pass Intake, Validation, Department Review, Inter-agency Review, Authority Approval and Execution in that order." },
+    ],
+  },
+  {
+    id: "pol-fin",
+    name: "Financial Control Policy",
+    type: "policy",
+    version: "2.9",
+    uploadedAt: daysAgo(140),
+    status: "needs_review",
+    syncStatus: "failed",
+    sizeKb: 698,
+    fileName: "financial-control-policy-v2.9.pdf",
+    owner: "Finance",
+    summary: "Budget control, commitment accounting and segregation of duties. Due for annual review.",
+    clauses: [
+      { ref: "§4.1", title: "Budget cover", text: "No commitment may be approved without confirmed budget cover from Finance." },
+    ],
+  },
+];
