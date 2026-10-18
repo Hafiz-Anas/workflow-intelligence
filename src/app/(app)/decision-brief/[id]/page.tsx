@@ -110,10 +110,10 @@ export default function DecisionBriefPage() {
           <EmptyState
             icon={FileSearch}
             title="Request not found"
-            description={`There is no request with ID ${id}.`}
+            description={`There is no request with ID ${id}. Select a request from the Priority Queue to view its Decision Brief.`}
             action={
               <Button asChild variant="outline" size="sm">
-                <Link href="/priority-queue">Back to Priority Queue</Link>
+                <Link href="/priority-queue">Go to Priority Queue</Link>
               </Button>
             }
           />

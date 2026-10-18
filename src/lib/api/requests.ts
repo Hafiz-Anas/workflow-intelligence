@@ -37,14 +37,6 @@ export async function getRequest(id: string): Promise<Request> {
   return requestSchema.parse(request);
 }
 
-/** The id of the open request with the highest priority (used by the sidebar link). */
-export async function getTopRequestId(): Promise<string> {
-  const requests = await getRequests();
-  const open = requests.find((r) => r.status !== "approved" && r.status !== "declined") ?? requests[0];
-  if (!open) throw new ApiError(404, "There are no requests in the queue.");
-  return open.id;
-}
-
 export async function getDecisionBrief(id: string): Promise<DecisionBrief> {
   await simulateLatency();
   const request = db.requests.find((r) => r.id === id);

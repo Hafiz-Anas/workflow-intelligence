@@ -1,7 +1,6 @@
 export const queryKeys = {
   requests: ["requests"] as const,
   queueSummary: ["requests", "summary"] as const,
-  topRequestId: ["requests", "top"] as const,
   request: (id: string) => ["requests", id] as const,
   brief: (id: string) => ["briefs", id] as const,
   tiers: ["tiers"] as const,
